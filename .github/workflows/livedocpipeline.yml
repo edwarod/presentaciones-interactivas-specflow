@@ -28,8 +28,8 @@ jobs:
 
       - name: Generate LivingDoc documentation
         run: |
-          export PATH="$PATH:/github/home/.dotnet/tools"
-          livingdoc test-assembly ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/$SPECFLOW_PROJECT.dll -t ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/TestExecution.json --output ./docs
+          export PATH="$PATH:/root/.dotnet/tools"
+          livingdoc test-assembly ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/$SPECFLOW_PROJECT.dll -t ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/TestExecution.json --output ./docs/index.html
 
       - name: Install rsync
         run: apt-get install -y rsync
