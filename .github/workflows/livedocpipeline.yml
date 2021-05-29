@@ -32,7 +32,7 @@ jobs:
           livingdoc test-assembly ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/$SPECFLOW_PROJECT.dll -t ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/TestExecution.json --output ./docs
 
       - name: Install rsync
-        run: apt-get install rsync
+        run: apt-get install -y rsync
         
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
