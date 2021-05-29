@@ -5,6 +5,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: edwarod/ubuntumono:version1.0
+    env:
+      SPECFLOW_PROJECT: PresentacionesInteractivas
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
@@ -19,3 +22,11 @@ jobs:
 
       - name: Test
         run: dotnet test
+      
+      - name: Install SpecFlow LivingDoc generator
+        run: dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
+      - name: Generate LivingDoc documentation
+        run: |
+          export PATH="$PATH:/root/.dotnet/tools"
+          livingdoc test-assembly ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/$SPECFLOW_PROJECT.dll -t ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/TestExecution.json
