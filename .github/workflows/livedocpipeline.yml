@@ -29,8 +29,8 @@ jobs:
       - name: Generate LivingDoc documentation
         run: |
           export PATH="$PATH:/github/home/.dotnet/tools"
-          livingdoc test-assembly ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/$SPECFLOW_PROJECT.dll -t ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/TestExecution.json
-          
+          livingdoc test-assembly ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/$SPECFLOW_PROJECT.dll -t ./$SPECFLOW_PROJECT/bin/Debug/netcoreapp3.1/TestExecution.json --output ./docs
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
