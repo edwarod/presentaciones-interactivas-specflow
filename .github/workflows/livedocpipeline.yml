@@ -8,7 +8,6 @@ jobs:
     container: edwarod/ubuntumono:version1.0
     env:
       SPECFLOW_PROJECT: PresentacionesInteractivas
-      PATH: "${PATH}:/root/.dotnet/tools"
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
